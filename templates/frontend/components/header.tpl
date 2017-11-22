@@ -73,7 +73,7 @@
 				{* Agregando un banner *}
 				<div class="mi_banner">
 					<!-- <p>Aquí deberá venir un banner </p> -->
-					<img src="{$baseUrl}/templates/images/structure/banner_perfiles_educatiovs.jpg" width="100%" />
+					<img src="{$baseUrl}/plugins/themes/default-child/images/banner-perfiles-educativos.jpg" width="100%" />
 				</div>
 
 				{* Primary site navigation *}
