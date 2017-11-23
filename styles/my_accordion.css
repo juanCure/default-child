@@ -1,0 +1,45 @@
+/* Estilos agregados por Juan Manuel Rodríguez Martínez
+ Estos estilos fueron agregados para la implementación de un 
+ accordion en la vista de las secciones */
+
+ h2.acc-header {
+ 	background-color: #eee !important;
+ 	color: #444;
+ 	cursor: pointer;
+ 	width: 100%;
+ 	border: none;
+ 	text-align: left;
+ 	outline: none;
+ 	font-size: 15px;
+ 	transition: 0.4s;
+ }
+
+ h2.acc-header.active, h2.acc-header:hover {
+    background-color: #ccc !important;
+}
+
+h2.acc-header:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+h2.acc-header.active:after {
+    content: "\2212";
+}
+
+div.acc-body {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.section {
+	margin: 0 -30px !important;
+	padding: 10px !important;
+}
+

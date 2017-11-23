@@ -24,6 +24,8 @@ class DefaultChildThemePlugin extends ThemePlugin {
 	public function init() {
 		$this->setParent('defaultthemeplugin');
 		$this->modifyStyle('stylesheet', array('addLess' => array('styles/remove-borders.less')));
+		// Agregando un nuevo archivo de estilos my_accordion.css 
+		$this->addStyle('my_accordion', 'styles/my_accordion.css');
 		// Agregando un script que agrega nueva funcionalidad al theme
 		$this->addScript('my_script', 'js/my_script.js');
 	}
