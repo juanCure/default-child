@@ -23,8 +23,12 @@
 				<div class="pkp_block">
 					<span class="title">Videos</span>
 					<div class="content">
-						<p><iframe width="360" height="315" src="https://www.youtube.com/embed/3rmjoOQpRwE" frameborder="0" allowfullscreen></iframe></p>
+						<p><iframe width="320" height="315" src="https://www.youtube.com/embed/3rmjoOQpRwE" frameborder="0" allowfullscreen></iframe></p>
 					</div>
+				</div>
+				<!-- Agregando un div para contener el iframe con la página de facebook de la revista -->
+				<div class="pkp_block">
+					<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Frevista.perfiles.educativos%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1512284222119075" width="320" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 				</div>
 				{$sidebarCode}
 			</div><!-- pkp_sidebar.left -->
