@@ -28,6 +28,8 @@ class DefaultChildThemePlugin extends ThemePlugin {
 		$this->addStyle('my_accordion', 'styles/my_accordion.css');
 		// Agregando un script que agrega nueva funcionalidad al theme
 		$this->addScript('my_script', 'js/my_script.js');
+		// Habilitando el envio de datos a un template especifico
+		HookRegistry::register ('TemplateManager::display', array($this, 'loadTemplateData'));
 	}
 
 	/**
@@ -45,6 +47,44 @@ class DefaultChildThemePlugin extends ThemePlugin {
 	function getDescription() {
 		return __('plugins.themes.default-child.description');
 	}
+
+	/**
+   * Fired when the `TemplateManager::display` hook is called.
+   *
+   * @param string $hookname
+   * @param array $args [$templateMgr, $template, $sendContentType, $charset, $output]
+   */
+  public function loadTemplateData($hookName, $args) {
+
+    // Retrieve the TemplateManager
+    $templateMgr = $args[0];
+    $template = $args[1];
+
+    // Don't do anything if we're not loading the right template
+    if ($template != 'frontend/pages/article.tpl') {
+        return;
+    }
+
+    // Obteniendo el arreglo $publishedArticles para enviarlo al template 
+    // article.tpl
+    $request = Application::getRequest();
+    $journal = $request->getJournal();
+
+    // Make sure there's a current issue for this journal
+		$issueDao = DAORegistry::getDAO('IssueDAO');
+		$issue = $issueDao->getCurrent($journal->getId(), true);
+		if (!$issue) return false;
+
+		$publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
+		$publishedArticles = $publishedArticleDao->getPublishedArticlesInSections($issue->getId(), true);
+
+    // Attach a custom piece of data to the TemplateManager
+    $myCustomData = 'This is my custom data. It could be any PHP variable.';
+    $templateMgr->assign(array(
+    	'myCustomData' => $myCustomData,
+    	'myPublishedArticles' => $publishedArticles
+    	));
+  }
 }
 
 ?>

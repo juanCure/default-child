@@ -19,17 +19,48 @@
 		{call_hook|assign:"sidebarCode" name="Templates::Common::Sidebar"}
 		{if $sidebarCode}
 			<div class="pkp_structure_sidebar left" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
-				<!-- Agregando un div con video -->
-				<div class="pkp_block">
-					<span class="title">Videos</span>
-					<div class="content">
-						<p><iframe width="320" height="315" src="https://www.youtube.com/embed/3rmjoOQpRwE" frameborder="0" allowfullscreen></iframe></p>
+				{if $requestedPage != 'article'}
+					<!-- Agregando un div con video -->
+					<div class="pkp_block">
+						<span class="title">Videos</span>
+						<div class="content">
+							<p><iframe width="320" height="315" src="https://www.youtube.com/embed/3rmjoOQpRwE" frameborder="0" allowfullscreen></iframe></p>
+						</div>
 					</div>
-				</div>
-				<!-- Agregando un div para contener el iframe con la página de facebook de la revista -->
-				<div class="pkp_block">
-					<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Frevista.perfiles.educativos%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1512284222119075" width="320" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-				</div>
+					<!-- Agregando un div para contener el iframe con la página de facebook de la revista -->
+					<div class="pkp_block">
+						<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Frevista.perfiles.educativos%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1512284222119075" width="320" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+					</div>
+				{elseif $issue && $section && $myPublishedArticles}
+					<div class="myPublishedArticles pkp_block">
+						<div>
+							<span class="title">Más articulos en éste número</span>
+						</div>
+						{foreach name=sections from=$myPublishedArticles item=section}
+							{if $section.articles}
+								<div class="myArticles">
+									{foreach from=$section.articles item=article}
+										<div class="title">
+											<a href="#">{$article->getLocalizedTitle()|strip_unsafe_html}</a>
+										</div>
+										<div class="authors">
+											{$article->getAuthorString()}
+										</div>
+									{/foreach}
+								</div>
+							{/if}
+							<!-- <div class="mySection">
+								{if $section.articles}
+									{if $section.title}
+										<div class="section_title">
+											<h3>{$section.title|escape}</h3>
+										</div>
+									{/if}	
+								{/if}		
+							</div> -->
+						{/foreach}
+					</div>
+				{/if}
 				{$sidebarCode}
 			</div><!-- pkp_sidebar.left -->
 		{/if}
