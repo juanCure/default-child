@@ -24,7 +24,7 @@ class DefaultChildThemePlugin extends ThemePlugin {
 	public function init() {
 		$this->setParent('defaultthemeplugin');
 		$this->modifyStyle('stylesheet', array('addLess' => array('styles/remove-borders.less')));
-		// Agregando un nuevo archivo de estilos my_accordion.css 
+		// Agregando un nuevo archivo de estilos my_accordion.css
 		$this->addStyle('my_accordion', 'styles/my_accordion.css');
 		// Agregando un script que agrega nueva funcionalidad al theme
 		$this->addScript('my_script', 'js/my_script.js');
@@ -65,10 +65,13 @@ class DefaultChildThemePlugin extends ThemePlugin {
         return;
     }
 
-    // Obteniendo el arreglo $publishedArticles para enviarlo al template 
+    // Obteniendo el arreglo $publishedArticles para enviarlo al template
     // article.tpl
     $request = Application::getRequest();
     $journal = $request->getJournal();
+
+    // Obteniendo el issue al cual pertenece el articulo actual
+    $displayedIssue = $templateMgr->get_template_vars('issue');
 
     // Make sure there's a current issue for this journal
 		$issueDao = DAORegistry::getDAO('IssueDAO');
@@ -76,7 +79,8 @@ class DefaultChildThemePlugin extends ThemePlugin {
 		if (!$issue) return false;
 
 		$publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
-		$publishedArticles = $publishedArticleDao->getPublishedArticlesInSections($issue->getId(), true);
+		/*$publishedArticles = $publishedArticleDao->getPublishedArticlesInSections($issue->getId(), true);*/
+		$publishedArticles = $publishedArticleDao->getPublishedArticlesInSections($displayedIssue->getId(), true);
 
     // Attach a custom piece of data to the TemplateManager
     $myCustomData = 'This is my custom data. It could be any PHP variable.';

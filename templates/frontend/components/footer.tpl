@@ -33,15 +33,16 @@
 					</div>
 				{elseif $issue && $section && $myPublishedArticles}
 					<div class="myPublishedArticles pkp_block">
-						<div>
-							<span class="title">Más articulos en éste número</span>
-						</div>
+						<h3>{translate key="plugins.themes.default-child.related.articles.heading"}</h3>
 						{foreach name=sections from=$myPublishedArticles item=section}
 							{if $section.articles}
 								<div class="myArticles">
 									{foreach from=$section.articles item=article}
+										{assign var=articlePath value=$article->getBestArticleId()}
 										<div class="title">
-											<a href="#">{$article->getLocalizedTitle()|strip_unsafe_html}</a>
+											<a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if}>
+											{$article->getLocalizedTitle()|strip_unsafe_html}
+											</a>
 										</div>
 										<div class="authors">
 											{$article->getAuthorString()}
@@ -49,15 +50,6 @@
 									{/foreach}
 								</div>
 							{/if}
-							<!-- <div class="mySection">
-								{if $section.articles}
-									{if $section.title}
-										<div class="section_title">
-											<h3>{$section.title|escape}</h3>
-										</div>
-									{/if}	
-								{/if}		
-							</div> -->
 						{/foreach}
 					</div>
 				{/if}
