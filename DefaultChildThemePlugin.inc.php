@@ -29,7 +29,7 @@ class DefaultChildThemePlugin extends ThemePlugin {
 		// Agregando un script que agrega nueva funcionalidad al theme
 		$this->addScript('my_script', 'js/my_script.js');
 		// Habilitando el envio de datos a un template especifico
-		HookRegistry::register ('TemplateManager::display', array($this, 'loadTemplateData'));
+		HookRegistry::register('TemplateManager::display', array(&$this, 'loadTemplateData'));
 	}
 
 	/**

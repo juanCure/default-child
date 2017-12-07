@@ -11,12 +11,12 @@
   * Localization strings
   -->
 
-<locale name="en_US" full_name="U.S. English">
-	<message key="plugins.themes.default-child.name">Example Child Theme</message>
+<locale name="es_ES" full_name="Español (España)">
+	<message key="plugins.themes.default-child.name">Ejemplo de Tema Hijo</message>
 	<message key="plugins.themes.default-child.description">This theme is an example of a child theme of the default theme.</message>
-	<message key="plugins.themes.default-child.related.articles.heading">Most articles by the same issue</message>
+  <message key="plugins.themes.default-child.related.articles.heading">Más artículos en este número</message>
   <!-- Agregando las etiquetas para search.tpl -->
-  <message key="search.your.search">Your search</message>
-  <message key="search.returned">returned</message>
-  <message key="search.results">results</message>
+  <message key="search.your.search">Tu búsqueda</message>
+  <message key="search.returned">arrojó</message>
+  <message key="search.results">resultados</message>
 </locale>

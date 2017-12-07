@@ -19,7 +19,7 @@
 		{call_hook|assign:"sidebarCode" name="Templates::Common::Sidebar"}
 		{if $sidebarCode}
 			<div class="pkp_structure_sidebar left" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
-				{if $requestedPage != 'article'}
+				{if $requestedPage != 'article' && $requestedPage != 'search'}
 					<!-- Agregando un div con video -->
 					<div class="pkp_block">
 						<span class="title">Videos</span>
@@ -31,6 +31,7 @@
 					<div class="pkp_block">
 						<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Frevista.perfiles.educativos%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1512284222119075" width="320" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 					</div>
+				{* Article Page*}
 				{elseif $issue && $section && $myPublishedArticles}
 					<div class="myPublishedArticles pkp_block">
 						<h3>{translate key="plugins.themes.default-child.related.articles.heading"}</h3>
@@ -51,6 +52,59 @@
 								</div>
 							{/if}
 						{/foreach}
+					</div>
+				{* Search Page *}
+				{elseif $requestedPage == 'search'}
+					<div class="my_search_section">
+						<form class="cmp_form" method="post" action="{url op="search"}">
+							{csrf}
+
+							{* Repeat the label text just so that screen readers have a clear
+							   label/input relationship *}
+							<!-- <div class="search_input">
+								<label class="pkp_screen_reader" for="query">
+									{translate key="search.searchFor"}
+								</label>
+								<input type="text" id="query" name="query" value="{$query|escape}" class="query" placeholder="{translate|escape key="common.search"}">
+							</div> -->
+
+							<fieldset class="search_advanced">
+								<legend>
+									{translate key="search.advancedFilters"}
+								</legend>
+								<div class="my_block">
+									<span>Filtar por fechas:</span>
+									<div class="date_range">
+										<div class="from">
+											<label class="label">
+												{translate key="search.dateFrom"}
+											</label>
+											{html_select_date prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd year_empty="" month_empty="" day_empty="" field_order="YMD"}
+										</div>
+										<div class="to">
+											<label class="label">
+												{translate key="search.dateTo"}
+											</label>
+											{html_select_date prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd year_empty="" month_empty="" day_empty="" field_order="YMD"}
+										</div>
+									</div>
+								</div>
+								<br>
+								<div class="my_block">
+									<span>Buscar por:</span>
+									<div class="author">
+										<label class="label" for="authors">
+											{translate key="search.author"}
+										</label>
+										<input type="text" for="authors" name="authors" value="{$authors}">
+									</div>
+								</div>
+							</fieldset>
+
+							<div class="submit">
+								<button class="submit" type="submit">{translate key="common.search"}</button>
+							</div>
+						</form>
 					</div>
 				{/if}
 				{$sidebarCode}
