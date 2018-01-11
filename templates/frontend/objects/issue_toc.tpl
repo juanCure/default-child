@@ -16,6 +16,7 @@
  *   sorted by section.
  * @uses $primaryGenreIds array List of file genre ids for primary file types
  *}
+ <!-- {debug} -->
 <div class="obj_issue_toc">
 
 	{* Indicate if this is only a preview *}
@@ -27,9 +28,10 @@
 	<div class="heading">
 
 		{* Título del número *}
-		{if $issueTitle}
+		{if $issueIdentification}
 			<div class="title">
-				<span>{$issueTitle}: {$issueSeries}, </span>
+				<!-- <span>{$issueTitle}: {$issueSeries}, </span> -->
+				<span> {$issueIdentification}, </span>
 				{* Published date *}
 				{if $issue->getDatePublished()}
 				<span class="label">
