@@ -37,7 +37,7 @@
 					{translate key="submissions.published"}:
 				</span>
 				<span class="value">
-					{$issue->getDatePublished()|date_format:$dateFormatShort}
+					{$issue->getDatePublished()|date_format}
 				</span>
 				{/if}
 			</div>

@@ -66,6 +66,7 @@
  *}
  <!-- {debug} -->
 <article class="obj_article_details">
+	<h3>{$issue->getIssueIdentification()}, {$article->getDatePublished()|date_format}</h3>
 	<h1 class="page_title">
 		{$article->getLocalizedTitle()|escape}
 	</h1>
@@ -142,7 +143,29 @@
 			{* Aquí deberán de ir los botones de las galeras principales *}
 
 			<div class="galeras_principales">
-				<h3>Aquí deberán de ir los botones de las galeras principales</h3>
+				{* Article Galleys *}
+				{if $primaryGalleys}
+					<div class="item galleys">
+						<ul class="value galleys_links">
+							{foreach from=$primaryGalleys item=galley}
+								<li>
+									{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley purchaseFee=$currentJournal->getSetting('purchaseArticleFee') purchaseCurrency=$currentJournal->getSetting('currency')}
+								</li>
+							{/foreach}
+						</ul>
+					</idv>
+				{/if}
+				{if $supplementaryGalleys}
+					<div class="item galleys">
+						<ul class="value supplementary_galleys_links">
+							{foreach from=$supplementaryGalleys item=galley}
+								<li>
+									{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley isSupplementary="1"}
+								</li>
+							{/foreach}
+						</ul>
+					</div>
+				{/if}
 			</div>
 
 			{* Abstract *}
@@ -226,7 +249,7 @@
 		<div class="entry_details">
 
 			{* Article/Issue cover image *}
-			{if $article->getLocalizedCoverImage() || $issue->getLocalizedCoverImage()}
+			{*{if $article->getLocalizedCoverImage() || $issue->getLocalizedCoverImage()}
 				<div class="item cover_image">
 					<div class="sub_item">
 						{if $article->getLocalizedCoverImage()}
@@ -238,33 +261,9 @@
 						{/if}
 					</div>
 				</div>
-			{/if}
+			{/if}*}
 
-			{* Article Galleys *}
-			{if $primaryGalleys}
-				<div class="item galleys">
-					<ul class="value galleys_links">
-						{foreach from=$primaryGalleys item=galley}
-							<li>
-								{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley purchaseFee=$currentJournal->getSetting('purchaseArticleFee') purchaseCurrency=$currentJournal->getSetting('currency')}
-							</li>
-						{/foreach}
-					</ul>
-				</idv>
-			{/if}
-			{if $supplementaryGalleys}
-				<div class="item galleys">
-					<ul class="value supplementary_galleys_links">
-						{foreach from=$supplementaryGalleys item=galley}
-							<li>
-								{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley isSupplementary="1"}
-							</li>
-						{/foreach}
-					</ul>
-				</div>
-			{/if}
-
-			{if $article->getDatePublished()}
+			{*{if $article->getDatePublished()}
 				<div class="item published">
 					<div class="label">
 						{translate key="submissions.published"}
@@ -273,10 +272,10 @@
 						{$article->getDatePublished()|date_format:$dateFormatShort}
 					</div>
 				</div>
-			{/if}
+			{/if}*}
 
 			{* How to cite *}
-			{if $citation}
+			{*{if $citation}
 				<div class="item citation">
 					<div class="sub_item citation_display">
 						<div class="label">
@@ -325,10 +324,10 @@
 						</div>
 					</div>
 				</div>
-			{/if}
+			{/if}*}
 
 			{* Issue article appears in *}
-			<div class="item issue">
+			{*<div class="item issue">
 				<div class="sub_item">
 					<div class="label">
 						{translate key="issue.issue"}
@@ -350,7 +349,7 @@
 						</div>
 					</div>
 				{/if}
-			</div>
+			</div>*}
 
 			{* PubIds (requires plugins) *}
 			{foreach from=$pubIdPlugins item=pubIdPlugin}
@@ -377,7 +376,7 @@
 			{/foreach}
 
 			{* Licensing info *}
-			{if $copyright || $licenseUrl}
+			{*{if $copyright || $licenseUrl}
 				<div class="item copyright">
 					{if $licenseUrl}
 						{if $ccLicenseBadge}
@@ -394,7 +393,7 @@
 					{/if}
 					{$copyright}
 				</div>
-			{/if}
+			{/if}*}
 
 			{call_hook name="Templates::Article::Details"}
 
