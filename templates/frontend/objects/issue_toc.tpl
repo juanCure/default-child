@@ -30,7 +30,6 @@
 		{* Título del número *}
 		{if $issueIdentification}
 			<div class="title">
-				<!-- <span>{$issueTitle}: {$issueSeries}, </span> -->
 				<span> {$issueIdentification}, </span>
 				{* Published date *}
 				{if $issue->getDatePublished()}
