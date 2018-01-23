@@ -116,18 +116,33 @@
 <div id="pkp_content_footer" class="pkp_structure_footer_wrapper" role="contentinfo">
 
 	<div class="pkp_structure_footer">
+	<div class="my_footer_content">
+		<div id="left_content">
+			<div>Sitio web administrado por:</div>
+			<div>Instituto de Investigaciones sobre la Universidad y la Educación</div>
+			<div>perfiles@unam.mx</div>
+		</div>
+		<div id="center_content">
+			<div>Licencia Creative Commons</div>
+			<div>ISSN versión electrónica: <span>2448-6167</span></div>
+			<div>ISSN versión impresa: <span>0185-2698</span></div>
+		</div>
+		<div id="right_content">
+			Aquí deberá de venir la imágen de la UNAM
+		</div>
+	</div>
 
 		{if $pageFooter}
 			<div class="pkp_footer_content">
 				{$pageFooter}
 			</div>
 		{/if}
-
+		{*
 		<div class="pkp_brand_footer" role="complementary">
 			<a href="{url page="about" op="aboutThisPublishingSystem"}">
 				<img alt="{translate key="about.aboutThisPublishingSystem"}" src="{$baseUrl}/{$brandImage}">
 			</a>
-		</div>
+		</div>*}
 	</div>
 </div><!-- pkp_structure_footer_wrapper -->
 
