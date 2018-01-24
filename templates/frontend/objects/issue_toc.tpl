@@ -58,13 +58,6 @@
 				</ul>
 			</div>
 		{/if}
-		{* Issue cover image *}
-		{assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
-		{if $issueCover}
-			<a class="cover" href="{url op="view" page="issue" path=$issue->getBestIssueId()}">
-				<img src="{$issueCover|escape}"{if $issue->getLocalizedCoverImageAltText() != ''} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
-			</a>
-		{/if}
 
 		{* Description *}
 		{*
@@ -97,29 +90,41 @@
 		{/foreach}
 
 	</div>
-
-
-	{* Articles *}
-	<div class="sections">
-	{foreach name=sections from=$publishedArticles item=section}
-		<div class="section">
-		{if $section.articles}
-			{if $section.title}
-				<h2 class="acc-header">
-					{$section.title|escape}
-				</h2>
+	<!-- A petición de Caro -->
+	<div class="magazine">
+		{* Issue cover image *}
+		<div class="myCover">
+			{assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
+			{if $issueCover}
+				<a class="cover" href="{url op="view" page="issue" path=$issue->getBestIssueId()}">
+					<img src="{$issueCover|escape}"{if $issue->getLocalizedCoverImageAltText() != ''} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
+				</a>
 			{/if}
-			<div class="acc-body">
-				<ul class="articles">
-					{foreach from=$section.articles item=article}
-						<li>
-							{include file="frontend/objects/article_summary.tpl"}
-						</li>
-					{/foreach}
-				</ul>
-			</div>
-		{/if}
 		</div>
-	{/foreach}
-	</div><!-- .sections -->
+
+		{* Articles *}
+		<div class="sections">
+		{foreach name=sections from=$publishedArticles item=section}
+			<div class="section">
+			{if $section.articles}
+				{if $section.title}
+					<h2 class="acc-header">
+						{$section.title|escape}
+					</h2>
+				{/if}
+				<div class="acc-body">
+					<ul class="articles">
+						{foreach from=$section.articles item=article}
+							<li>
+								{include file="frontend/objects/article_summary.tpl"}
+							</li>
+						{/foreach}
+					</ul>
+				</div>
+			{/if}
+			</div>
+		{/foreach}
+		</div><!-- .sections -->
+	</div>
+
 </div>
