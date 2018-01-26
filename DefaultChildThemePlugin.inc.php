@@ -26,6 +26,9 @@ class DefaultChildThemePlugin extends ThemePlugin {
 		$this->modifyStyle('stylesheet', array('addLess' => array('styles/remove-borders.less')));
 		// Agregando un nuevo archivo de estilos my_accordion.css
 		$this->addStyle('my_accordion', 'styles/my_accordion.css');
+		// Agregando los archivos necesarios para utilizar la biblioteca flag-icon-css
+		$this->addStyle('docs', 'flag-icon-css/assets/docs.css');
+		$this->addStyle('flag_icon', 'flag-icon-css/css/flag-icon.css');
 		// Agregando un script que agrega nueva funcionalidad al theme
 		$this->addScript('my_script', 'js/my_script.js');
 		// Habilitando el envio de datos a un template especifico
