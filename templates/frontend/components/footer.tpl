@@ -33,8 +33,10 @@
 					</div>
 				{* Article Page*}
 				{elseif $issue && $section && $myPublishedArticles}
-					<div class="myPublishedArticles pkp_block">
+					<div class="my_block_title">
 						<h3>{translate key="plugins.themes.default-child.related.articles.heading"}</h3>
+					</div>
+					<div class="myPublishedArticles pkp_block">
 						{foreach name=sections from=$myPublishedArticles item=section}
 							{if $section.articles}
 								<div class="myArticles">
