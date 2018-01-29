@@ -25,11 +25,29 @@
 
 	{* List issues *}
 	{else}
-		<ul class="issues_archive">
+		<div class="years">
+			{foreach name=years from=$yearsArray item=year}
+				<div class="year">
+					<h2 class="acc-header active">
+						{$year.year} | {$year.total_elements} {translate key="plugins.themes.default-child.issues"}.
+					</h2>
+					<div class="acc-body">
+						<ul class="my_issues">
+							{foreach name=issues from=$year.elements item=issue}
+								<li>
+									{include file="frontend/objects/issue_summary.tpl"}
+								</li>
+							{/foreach}
+						</ul>
+					</div>
+				</div>
+			{/foreach}
+		</div>
+		{*<ul class="issues_archive">
 			{assign var=index value=0}
 			{iterate from=issues item=issue}
 				{if $issue->getDatePublished()|date_format:"%Y" != $lastPublishedYear}
-					<li><h2 class="acc-header">{$issue->getDatePublished()|date_format:"%Y"|escape} |  {$myArray[$index].elements} {translate key="plugins.themes.default-child.issues"}</h2></li>
+					<li><h2 class="acc-header">{$issue->getDatePublished()|date_format:"%Y"|escape} |  {$yearsArray[$index].total_elements} {translate key="plugins.themes.default-child.issues"}</h2></li>
 					{assign var=lastPublishedYear value=$issue->getDatePublished()|date_format:"%Y"}
 					{assign var=index value=$index+1}
 				{/if}
@@ -37,7 +55,7 @@
 					{include file="frontend/objects/issue_summary.tpl"}
 				</li>
 			{/iterate}
-		</ul>
+		</ul>*}
 
 		{if $issues->getPageCount() > 0}
 			<div class="cmp_pagination">

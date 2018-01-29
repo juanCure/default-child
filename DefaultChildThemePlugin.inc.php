@@ -94,7 +94,8 @@ class DefaultChildThemePlugin extends ThemePlugin {
     	$publishedIssueArray = $publishedIssuesIterator->toArray();
     	$countElements = 0;
     	$index = 0;
-    	$myArray = array();
+    	$yearsArray = array();
+    	$elements = array();
     	if ($publishedIssueArray[0] instanceof Issue) {
     		$lastIssue = $publishedIssueArray[0];
     		$datePublished = date_create($lastIssue->getDatePublished());
@@ -107,20 +108,24 @@ class DefaultChildThemePlugin extends ThemePlugin {
     			if($currentYear == $lastYear){
     				$countElements++;
     			} else {
-    				$myArray[$index]['year'] = $lastYear;
-	  				$myArray[$index]['elements'] = $countElements;
+    				$yearsArray[$index]['year'] = $lastYear;
+	  				$yearsArray[$index]['total_elements'] = $countElements;
+	  				$yearsArray[$index]['elements'] = $elements;
+	  				$elements = array();
 	  				$lastYear = $currentYear;
 	  				$index++;
 	  				$countElements = 1;
     			}
+    			$elements[] = $value;
     		}
     	}
-    	$myArray[$index]['year'] = $lastYear;
-  		$myArray[$index]['elements'] = $countElements;
+    	$yearsArray[$index]['year'] = $lastYear;
+  		$yearsArray[$index]['total_elements'] = $countElements;
+  		$yearsArray[$index]['elements'] = $elements;
   		// Para debuguear directo al archivo de log de errores de php
-    	// error_log(print_r($myArray, TRUE)); 
+    	// error_log(print_r($yearsArray, TRUE)); 
     	$templateMgr->assign(array('myCustomData'=> 'This data comes from DefaultChildThemePlugin.inc.php',
-    		'myArray' => $myArray));
+    		'yearsArray' => $yearsArray));
     }
   }
 }
