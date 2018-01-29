@@ -19,4 +19,5 @@
   <message key="search.your.search">Tu búsqueda</message>
   <message key="search.returned">arrojó</message>
   <message key="search.results">resultados</message>
+  <message key="plugins.themes.default-child.issues">Números publicados</message>
 </locale>

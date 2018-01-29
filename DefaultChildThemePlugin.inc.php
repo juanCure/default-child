@@ -62,35 +62,66 @@ class DefaultChildThemePlugin extends ThemePlugin {
     // Retrieve the TemplateManager
     $templateMgr = $args[0];
     $template = $args[1];
-
-    // Don't do anything if we're not loading the right template
-    if ($template != 'frontend/pages/article.tpl') {
-        return;
-    }
-
-    // Obteniendo el arreglo $publishedArticles para enviarlo al template
-    // article.tpl
     $request = Application::getRequest();
     $journal = $request->getJournal();
+    $issueDao = DAORegistry::getDAO('IssueDAO');
 
-    // Obteniendo el issue al cual pertenece el articulo actual
-    $displayedIssue = $templateMgr->get_template_vars('issue');
+    // Don't do anything if we're not loading the right template
+    // La siguiente funcionalidad es para cargar información que no se encontraba
+    // disponible en el template frontend/pages/article.tpl
+    if ($template == 'frontend/pages/article.tpl') {
+    	 // Obteniendo el arreglo $publishedArticles para enviarlo al template article.tpl
+	     //Obteniendo el issue al cual pertenece el articulo actual
+	    $displayedIssue = $templateMgr->get_template_vars('issue');
 
-    // Make sure there's a current issue for this journal
-		$issueDao = DAORegistry::getDAO('IssueDAO');
-		$issue = $issueDao->getCurrent($journal->getId(), true);
-		if (!$issue) return false;
+	    // Make sure there's a current issue for this journal
+			$issue = $issueDao->getCurrent($journal->getId(), true);
+			if (!$issue) return false;
 
-		$publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
-		/*$publishedArticles = $publishedArticleDao->getPublishedArticlesInSections($issue->getId(), true);*/
-		$publishedArticles = $publishedArticleDao->getPublishedArticlesInSections($displayedIssue->getId(), true);
+			$publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
+			/*$publishedArticles = $publishedArticleDao->getPublishedArticlesInSections($issue->getId(), true);*/
+			$publishedArticles = $publishedArticleDao->getPublishedArticlesInSections($displayedIssue->getId(), true);
 
-    // Attach a custom piece of data to the TemplateManager
-    $myCustomData = 'This is my custom data. It could be any PHP variable.';
-    $templateMgr->assign(array(
-    	'myCustomData' => $myCustomData,
-    	'myPublishedArticles' => $publishedArticles
-    	));
+	    // Attach a custom piece of data to the TemplateManager
+	    $myCustomData = 'This is my custom data. It could be any PHP variable.';
+	    $templateMgr->assign(array(
+	    	'myCustomData' => $myCustomData,
+	    	'myPublishedArticles' => $publishedArticles
+	    	));
+    } else if ($template == 'frontend/pages/issueArchive.tpl') {
+    	// Obteniendo los números publicados para la revistas
+    	$publishedIssuesIterator = $issueDao->getPublishedIssues($journal->getId());
+    	$publishedIssueArray = $publishedIssuesIterator->toArray();
+    	$countElements = 0;
+    	$index = 0;
+    	$myArray = array();
+    	if ($publishedIssueArray[0] instanceof Issue) {
+    		$lastIssue = $publishedIssueArray[0];
+    		$datePublished = date_create($lastIssue->getDatePublished());
+    		$lastYear = date_format($datePublished, "Y");
+    	}
+    	foreach ($publishedIssueArray as $value) {
+    		if ($value instanceof Issue) {
+    			$datePublished = date_create($value->getDatePublished());
+    			$currentYear = date_format($datePublished, "Y");
+    			if($currentYear == $lastYear){
+    				$countElements++;
+    			} else {
+    				$myArray[$index]['year'] = $lastYear;
+	  				$myArray[$index]['elements'] = $countElements;
+	  				$lastYear = $currentYear;
+	  				$index++;
+	  				$countElements = 1;
+    			}
+    		}
+    	}
+    	$myArray[$index]['year'] = $lastYear;
+  		$myArray[$index]['elements'] = $countElements;
+  		// Para debuguear directo al archivo de log de errores de php
+    	// error_log(print_r($myArray, TRUE)); 
+    	$templateMgr->assign(array('myCustomData'=> 'This data comes from DefaultChildThemePlugin.inc.php',
+    		'myArray' => $myArray));
+    }
   }
 }
 
