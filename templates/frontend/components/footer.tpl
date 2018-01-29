@@ -118,25 +118,15 @@
 <div id="pkp_content_footer" class="pkp_structure_footer_wrapper" role="contentinfo">
 
 	<div class="pkp_structure_footer">
-	<div class="my_footer_content">
-		<div id="left_content">
-			<p>Sitio web administrado por:</p>
-			<p>Instituto de Investigaciones sobre la Universidad y la Educación</p>
-			<p>perfiles@unam.mx</p>
-		</div>
-		<div id="center_content">
-			<p>Licencia Creative Commons</p>
-			<p>ISSN versión electrónica: 2448-6167</p>
-			<p>ISSN versión impresa: 0185-2698</p>
-		</div>
-		<div id="right_content">
-			
-		</div>
-	</div>
-
 		{if $pageFooter}
 			<div class="pkp_footer_content">
-				{$pageFooter}
+				<div class="my_footer_content">
+					<div class="left_content">
+						{$pageFooter}
+					</div>
+					<div id="right_content">
+					</div>
+				</div>
 			</div>
 		{/if}
 		{*
