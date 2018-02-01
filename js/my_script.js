@@ -21,3 +21,7 @@ function open_acc_body(){
     panel.style.maxHeight = panel.scrollHeight + "px";
   } 
 }
+
+function close_div(id) {
+  $("#" + id).fadeOut("slow");
+}

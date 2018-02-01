@@ -30,7 +30,7 @@
 
 	{* Announcements *}
 	{if $numAnnouncementsHomepage && $announcements|@count}
-		<div class="cmp_announcements highlight_first">
+		<div id="announcements" class="cmp_announcements highlight_first">
 			<h2>
 				{translate key="announcement.announcements"}
 			</h2>
@@ -55,6 +55,9 @@
 				{/if}
 			{/foreach}
 			</div><!-- .more -->
+			<div class="close">
+				<a href="#" onclick="close_div('announcements')">Close div!</a>
+			</div>
 		</div>
 	{/if}
 
