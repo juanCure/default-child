@@ -61,8 +61,7 @@
 						<form class="cmp_form" method="post" action="{url op="search"}">
 							{csrf}
 
-							{* Repeat the label text just so that screen readers have a clear
-							   label/input relationship *}
+							{* Repeat the label text just so that screen readers have a clear label/input relationship *}
 							<!-- <div class="search_input">
 								<label class="pkp_screen_reader" for="query">
 									{translate key="search.searchFor"}
