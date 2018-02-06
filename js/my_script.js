@@ -3,7 +3,9 @@
 var acc = document.getElementsByClassName("acc-header");
 // Llamando a la función open_acc_body para siempre mostrar el primer
 // elemento del accordion abierto.
-open_acc_body.call(acc[0]);
+// open_acc_body.call(acc[0]);
+
+fixed_anchors();
 
 var i;
 for (i = 0; i < acc.length; i++) {
@@ -24,4 +26,20 @@ function open_acc_body(){
 
 function close_div(id) {
   $("#" + id).fadeOut("slow");
+}
+
+/* Función para fijar la caja con anclas en la vista Acerca de */
+function fixed_anchors() {
+  var fixed_anchors = $("#fixed_anchors");
+  var reference = $(".block_language");
+  var startPosition = reference.offset().top;
+
+  $(document).scroll(function(){
+    var y = $(this).scrollTop();
+    if(y > startPosition) {
+      fixed_anchors.addClass("fixed-anchors");
+    } else {
+      fixed_anchors.removeClass("fixed-anchors");
+    }
+  });
 }

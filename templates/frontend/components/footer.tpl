@@ -13,13 +13,13 @@
  *}
 
 	</div><!-- pkp_structure_main -->
-
+	
 	{* Sidebars *}
 	{if empty($isFullWidth)}
 		{call_hook|assign:"sidebarCode" name="Templates::Common::Sidebar"}
 		{if $sidebarCode}
 			<div class="pkp_structure_sidebar left" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
-				{if $requestedPage != 'article' && $requestedPage != 'search'}
+				{if $requestedPage != 'article' && $requestedPage != 'search' && $requestedPage != 'about'}
 					<!-- Agregando un div con video -->
 					<div class="pkp_block">
 						<span class="title">Videos</span>
@@ -106,6 +106,21 @@
 								<button class="submit" type="submit">{translate key="common.search"}</button>
 							</div>
 						</form>
+					</div>
+					{* Página about *}
+					{elseif $requestedPage == 'about' && $requestedOp == 'index'}
+					<div class="pkp_block" id="fixed_anchors">
+						<span class="title">Contenidos</span>
+						<div class="content">
+							<ul>
+								<li><a href="#enfoque">Enfoque y alcance</a></li>
+								<li><a href="#peerReviewProcess">Proceso de evaluación por pares</a></li>
+								<li><a href="#openAccessPolicy">Política de acceso abierto</a></li>
+								<li><a href="#ethicsCode">Código ética</a></li>
+								<li><a href="#databases">Índices, catálogos y bases de datos</a></li>
+								<li><a href="#history">Historial de la revista</a></li>
+							</ul>
+						</div>
 					</div>
 				{/if}
 				{$sidebarCode}

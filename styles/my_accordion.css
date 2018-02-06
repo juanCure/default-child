@@ -43,3 +43,10 @@ div.acc-body {
 	padding: 10px !important;
 }
 
+/* Fijando el div de contenidos para la vista de Acerca de */
+
+.fixed-anchors {
+    position: fixed;
+    top: 0px;
+    z-index: 1000; 
+}
