@@ -1,0 +1,80 @@
+/* Estilos agregados por Juan Manuel Rodríguez Martínez
+ Estos estilos fueron agregados para la implementación de una caja
+ de búsqueda que se oculte y se muestre mediante el uso de 
+ transiciones */
+.container-2{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+
+.container-2 input#search{
+  width: 50px;
+  height: 50px;
+  background: #ededed;
+  border: none;
+  font-size: 10pt;
+  float: right;
+  color: #262626;
+  padding-left: 35px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+ 
+  -webkit-transition: width .55s ease;
+  -moz-transition: width .55s ease;
+  -ms-transition: width .55s ease;
+  -o-transition: width .55s ease;
+  transition: width .55s ease;
+}
+
+.container-2 input#search::-webkit-input-placeholder {
+   color: #65737e;
+}
+ 
+.container-2 input#search:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;  
+}
+ 
+.container-2 input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;  
+}
+ 
+.container-2 input#search:-ms-input-placeholder {  
+   color: #65737e;  
+}
+
+.container-2 .icon{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-right: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #fff;
+}
+
+.container-2 input#search:focus, .container-2 input#search:active{
+  outline:none;
+  width: 300px;
+  background-color: #fff;
+  border-color: #66CC75; 
+}
+ 
+.container-2:hover input#search{
+width: 300px;
+}
+ 
+.container-2:hover .icon{
+  color: #93a2ad;
+}
+
+/* Deshabilitando el clear field X button */
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+.icon a, .icon a:hover {
+  color: green;
+}

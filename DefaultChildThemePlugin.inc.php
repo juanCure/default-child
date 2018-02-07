@@ -29,6 +29,10 @@ class DefaultChildThemePlugin extends ThemePlugin {
 		// Agregando los archivos necesarios para utilizar la biblioteca flag-icon-css
 		$this->addStyle('docs', 'flag-icon-css/assets/docs.css');
 		$this->addStyle('flag_icon', 'flag-icon-css/css/flag-icon.css');
+		// Agregando el archivo de estilos input_search.css 
+		$this->addStyle('input_search', 'styles/input_search.css');
+		// Agregando fontawesome
+		$this->addStyle('fontawesome', 'styles/font-awesome.min.css');
 		// Agregando un script que agrega nueva funcionalidad al theme
 		$this->addScript('my_script', 'js/my_script.js');
 		// Habilitando el envio de datos a un template especifico
