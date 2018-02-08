@@ -22,7 +22,6 @@
 				{if $requestedPage != 'article' && $requestedPage != 'search' && $requestedPage != 'about'}
 					<!-- Agregando un div con video -->
 					<div class="pkp_block">
-						<span class="title">Videos</span>
 						<div class="content">
 							<p><iframe width="320" height="315" src="https://www.youtube.com/embed/3rmjoOQpRwE" frameborder="0" allowfullscreen></iframe></p>
 						</div>
