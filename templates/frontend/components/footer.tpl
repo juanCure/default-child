@@ -29,7 +29,7 @@
 					</div>
 					<!-- Agregando un div para contener el iframe con la página de facebook de la revista -->
 					<div class="pkp_block">
-						<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Frevista.perfiles.educativos%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1512284222119075" width="320" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+						<iframe name="f3834c75c7b549c" width="1000px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:page Facebook Social Plugin" src="https://www.facebook.com/v2.7/plugins/page.php?adapt_container_width=true&amp;app_id=&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FlY4eZXm_YWu.js%3Fversion%3D42%23cb%3Df15aa5918422384%26domain%3Dwww.iisue.unam.mx%26origin%3Dhttp%253A%252F%252Fwww.iisue.unam.mx%252Ff38d95979a0991%26relation%3Dparent.parent&amp;container_width=300&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Frevista.perfiles.educativos%2F&amp;locale=es_ES&amp;sdk=joey&amp;show_facepile=true&amp;small_header=true&amp;tabs=timeline" style="border: none; visibility: visible; width: 300px; height: 500px;" class=""></iframe>
 					</div>
 				{* Article Page*}
 				{elseif $issue && $section && $myPublishedArticles}
