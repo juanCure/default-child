@@ -55,9 +55,6 @@
 				{/if}
 			{/foreach}
 			</div><!-- .more -->
-			<div class="close">
-				<a href="#" onclick="close_div('announcements')">Close div!</a>
-			</div>
 		</div>
 	{/if}
 
