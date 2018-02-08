@@ -10,7 +10,6 @@
  * @uses $announcement Announcement The announcement to display
  * @uses $heading string HTML heading element, default: h2
  *}
- {debug}
 {if !$heading}
 	{assign var="heading" value="h2"}
 {/if}
