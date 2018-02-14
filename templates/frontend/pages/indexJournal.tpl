@@ -82,8 +82,5 @@
 	{/if}
 
 </div><!-- .page -->
-<div class="estadisticas">
-	<h2>Aquí debe venir el contenido de las estadísticas...</h2>
-</div>
 
 {include file="frontend/components/footer.tpl"}

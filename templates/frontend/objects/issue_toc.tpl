@@ -124,6 +124,9 @@
 			{/if}
 			</div>
 		{/foreach}
+			<div class="estadisticas">
+				<h2>Aquí debe venir el contenido de las estadísticas...</h2>
+			</div>
 		</div><!-- .sections -->
 	</div>
 
