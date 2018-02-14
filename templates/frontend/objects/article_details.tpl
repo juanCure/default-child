@@ -64,7 +64,7 @@
  *   included with published articles.
  * @uses $ccLicenseBadge string An image and text with details about the license
  *}
- <!-- {debug} -->
+ {debug}
 <article class="obj_article_details">
 	<h3>{$issue->getIssueIdentification()}, {$article->getDatePublished()|date_format}</h3>
 	<h1 class="page_title">
@@ -275,7 +275,7 @@
 			{/if}*}
 
 			{* How to cite *}
-			{*{if $citation}
+			{if $citation}
 				<div class="item citation">
 					<div class="sub_item citation_display">
 						<div class="label">
@@ -324,7 +324,7 @@
 						</div>
 					</div>
 				</div>
-			{/if}*}
+			{/if}
 
 			{* Issue article appears in *}
 			{*<div class="item issue">
