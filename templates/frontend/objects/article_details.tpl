@@ -64,7 +64,6 @@
  *   included with published articles.
  * @uses $ccLicenseBadge string An image and text with details about the license
  *}
- {debug}
 <article class="obj_article_details">
 	<h3>{$issue->getIssueIdentification()}, {$article->getDatePublished()|date_format}</h3>
 	<h1 class="page_title">
