@@ -175,7 +175,7 @@
 				</div>
 			{/if}
 
-			{call_hook name="Templates::Article::Main"}
+			<!-- {call_hook name="Templates::Article::Main"} -->
 
 			{* Author biographies *}
 			{assign var="hasBiographies" value=0}
@@ -324,6 +324,8 @@
 					</div>
 				</div>
 			{/if}
+
+			{call_hook name="Templates::Article::Main"}
 
 			{* Issue article appears in *}
 			{*<div class="item issue">
