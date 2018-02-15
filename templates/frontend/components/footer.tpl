@@ -113,6 +113,7 @@
 						<div class="content">
 							<ul>
 								<li><a href="#enfoque">Enfoque y alcance</a></li>
+								<li><a href="#directorio">Directorio</a></li>
 								<li><a href="#peerReviewProcess">Proceso de evaluación por pares</a></li>
 								<li><a href="#openAccessPolicy">Política de acceso abierto</a></li>
 								<li><a href="#ethicsCode">Código ética</a></li>
