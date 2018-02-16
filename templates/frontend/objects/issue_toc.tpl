@@ -26,22 +26,45 @@
 
 	{* Issue introduction area above articles *}
 	<div class="heading">
+		<div id="metadata_issue">
+			{* Título del número *}
+			{if $issueIdentification}
+				<div class="title">
+					<span> {$issueIdentification}, </span>
+					{* Published date *}
+					{if $issue->getDatePublished()}
+					<span class="label">
+						{translate key="submissions.published"}:
+					</span>
+					<span class="value">
+						{$issue->getDatePublished()|date_format}
+					</span>
+					{/if}
+				</div>
+			{/if}
 
-		{* Título del número *}
-		{if $issueIdentification}
-			<div class="title">
-				<span> {$issueIdentification}, </span>
-				{* Published date *}
-				{if $issue->getDatePublished()}
-				<span class="label">
-					{translate key="submissions.published"}:
-				</span>
-				<span class="value">
-					{$issue->getDatePublished()|date_format}
-				</span>
+			{* PUb IDs (eg - DOI) *}
+			{foreach from=$pubIdPlugins item=pubIdPlugin}
+				{assign var=pubId value=$issue->getStoredPubId($pubIdPlugin->getPubIdType())}
+				{if $pubId}
+					{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+					<div class="pub_id {$pubIdPlugin->getPubIdType()|escape}">
+						<span class="type">
+							{$pubIdPlugin->getPubIdDisplayType()|escape}:
+						</span>
+						<span class="id">
+							{if $doiUrl}
+								<a href="{$doiUrl|escape}">
+									{$doiUrl}
+								</a>
+							{else}
+								{$pubId}
+							{/if}
+						</span>
+					</div>
 				{/if}
-			</div>
-		{/if}
+			{/foreach}
+		</div>
 
 		{* Full-issue galleys *}
 		{if $issueGalleys}
@@ -66,28 +89,6 @@
 				{$issue->getLocalizedDescription()|strip_unsafe_html}
 			</div>
 		{/if}*}
-
-		{* PUb IDs (eg - DOI) *}
-		{foreach from=$pubIdPlugins item=pubIdPlugin}
-			{assign var=pubId value=$issue->getStoredPubId($pubIdPlugin->getPubIdType())}
-			{if $pubId}
-				{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-				<div class="pub_id {$pubIdPlugin->getPubIdType()|escape}">
-					<span class="type">
-						{$pubIdPlugin->getPubIdDisplayType()|escape}:
-					</span>
-					<span class="id">
-						{if $doiUrl}
-							<a href="{$doiUrl|escape}">
-								{$doiUrl}
-							</a>
-						{else}
-							{$pubId}
-						{/if}
-					</span>
-				</div>
-			{/if}
-		{/foreach}
 
 	</div>
 	<!-- A petición de Caro -->
