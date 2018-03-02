@@ -23,7 +23,8 @@
 					<!-- Agregando un div con video -->
 					<div class="pkp_block">
 						<div class="content">
-							<p><iframe width="320" height="315" src="https://www.youtube.com/embed/3rmjoOQpRwE" frameborder="0" allowfullscreen></iframe></p>
+							<p>
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/Na4d585rXZw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
 						</div>
 					</div>
 					<!-- Agregando un div para contener el iframe con la página de facebook de la revista -->
