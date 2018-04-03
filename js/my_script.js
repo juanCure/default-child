@@ -43,3 +43,17 @@ function fixed_anchors() {
     }
   });
 }
+
+/* Agregando el script para hacer funcionar el menú hamburguesa */
+
+$(function(){
+  $("#hamburguesa").click(function(){
+    //Qué hago?
+    $("#menuPhone").slideToggle("slow");
+  });
+
+  $("#menuPhone li").click(function(){
+    //Qué hago
+    ("#menuPhone").slideUp();
+  });
+});

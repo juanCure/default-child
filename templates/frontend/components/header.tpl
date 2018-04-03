@@ -89,6 +89,46 @@
 						{* Primary navigation menu for current application *}
 						{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
 
+						{* Cargando el menú hamburguesa *}
+						<div id="hamburguesa">
+							<span class="icon-menu"> ::before</span>
+							<ul id="menuPhone" class="pkp_navigation_primary pkp_nav_list">
+								<li class="">
+									<a href="http://132.248.204.69/iisue_dev/index.php/perfiles/index">
+										Inicio
+									</a>
+								</li>
+								<li class="">
+									<a href="http://132.248.204.69/iisue_dev/index.php/perfiles/about">
+										Acerca de
+									</a>
+								</li>
+								<li class="">
+									<a href="http://132.248.204.69/iisue_dev/index.php/perfiles/issue/
+									archive">
+										Números anteriores
+									</a>
+								</li>
+								<li class="">
+									<a href="http://132.248.204.69/iisue_dev/index.php/perfiles/about/
+									submissions">
+										Autores
+									</a>
+								</li>
+								<li class="">
+									<a href="http://132.248.204.69/iisue_dev/index.php/perfiles/
+									announcement">
+										Avisos
+									</a>
+								</li>
+								<li class="">
+									<a href="http://132.248.204.69/iisue_dev/index.php/perfiles/
+									sitiosinteres">
+									Sitios de interés
+									</a>
+								</li>
+							</ul>
+						</div>
 						{* Search form *}
 						{include file="frontend/components/searchForm_simple.tpl"}
 					</div>
