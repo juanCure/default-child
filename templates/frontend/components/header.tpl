@@ -91,7 +91,7 @@
 
 						{* Cargando el menú hamburguesa *}
 						<div id="hamburguesa">
-							<span class="icon-menu"> ::before</span>
+							<span class="icon-menu"> </span>
 							<ul id="menuPhone" class="pkp_navigation_primary pkp_nav_list">
 								<li class="">
 									<a href="http://132.248.204.69/iisue_dev/index.php/perfiles/index">
