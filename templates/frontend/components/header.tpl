@@ -94,35 +94,32 @@
 							<span class="icon-menu"> </span>
 							<ul id="menuPhone" class="pkp_navigation_primary pkp_nav_list">
 								<li class="">
-									<a href="http://132.248.204.69/iisue_dev/index.php/perfiles/index">
+									<a href="http://perfileseducativos.unam.mx/iisue_pe/index.php/perfiles/index">
 										Inicio
 									</a>
 								</li>
 								<li class="">
-									<a href="http://132.248.204.69/iisue_dev/index.php/perfiles/about">
+									<a href="http://perfileseducativos.unam.mx/iisue_pe/index.php/perfiles/about">
 										Acerca de
 									</a>
 								</li>
 								<li class="">
-									<a href="http://132.248.204.69/iisue_dev/index.php/perfiles/issue/
-									archive">
+									<a href="http://perfileseducativos.unam.mx/iisue_pe/index.php/perfiles/issue/archive">
 										Números anteriores
 									</a>
 								</li>
 								<li class="">
-									<a href="http://132.248.204.69/iisue_dev/index.php/perfiles/about/
-									submissions">
+									<a href="http://perfileseducativos.unam.mx/iisue_pe/index.php/perfiles/about/submissions">
 										Autores
 									</a>
 								</li>
 								<li class="">
-									<a href="http://132.248.204.69/iisue_dev/index.php/perfiles/
-									announcement">
+									<a href="http://perfileseducativos.unam.mx/iisue_pe/index.php/perfiles/announcement">
 										Avisos
 									</a>
 								</li>
 								<li class="">
-									<a href="http://132.248.204.69/iisue_dev/index.php/perfiles/
+									<a href="http://perfileseducativos.unam.mx/iisue_pe/index.php/perfiles/
 									sitiosinteres">
 									Sitios de interés
 									</a>
